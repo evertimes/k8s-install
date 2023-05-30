@@ -17,9 +17,10 @@ hosts.each do |name, ip|
  config.vm.hostname = name
  config.vm.define name do |machine|
   machine.vm.network :private_network, ip: ip
+  machine.vm.hostname = name
   machine.vm.provider "virtualbox" do |v|
-   v.name = name
    v.memory = 2048
+   v.name = name
   end
  end
 end
